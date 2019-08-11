@@ -2,6 +2,7 @@ package com.qa.pages;
 
 import com.qa.base.TestBase;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -19,6 +20,9 @@ public class HomePage extends TestBase {
     @FindBy(xpath = "//a[contains(text(),'Tasks')]")
     WebElement taskLink;
 
+    @FindBy(xpath = "//a[contains(text(),'New Contact')]")
+    WebElement newContactLink;
+
     //initialize Page object
     public HomePage(){
         PageFactory.initElements(driver,this);
@@ -29,6 +33,9 @@ public class HomePage extends TestBase {
         return driver.getTitle();
     }
 
+    public boolean verifyCorrectUserName(){
+        return userNameLable.isDisplayed();
+    }
     public ContactsPage clickOnContactLink(){
      contactLink.click();
      return new ContactsPage();
@@ -41,6 +48,13 @@ public class HomePage extends TestBase {
     public TasksPage clickOnTasksLink(){
         taskLink.click();
         return new TasksPage();
+    }
+
+    public void clickOnNewContactLink(){
+        Actions action = new Actions(driver);  //Dropdown thats why first visible the drop down and then click on new contact link
+        action.moveToElement(contactLink).build().perform();
+        newContactLink.click();
+
     }
 
 

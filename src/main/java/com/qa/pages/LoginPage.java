@@ -38,7 +38,7 @@ public class LoginPage extends TestBase {
     public HomePage login(String un, String psw){
         username.sendKeys(un);
         password.sendKeys(psw);
-
+        loginBtn.submit();
         return new HomePage();//Langding page is homeoage
     }
 
