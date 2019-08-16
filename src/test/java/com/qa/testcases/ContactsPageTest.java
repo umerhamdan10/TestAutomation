@@ -56,8 +56,10 @@ public class ContactsPageTest extends TestBase {
 
         return objects;
     }
+    // here we use excel file and drive data from excel file
     @Test(priority = 4,dataProvider = "getDataFromSheet") //xcel sheet colums must be equal to parameter here in function
     public void createNewContact(String title,String fname,String lname,String company){
+
         homePage.clickOnNewContactLink();
         contactsPage.createNewContact(title,fname,lname,company);
     }

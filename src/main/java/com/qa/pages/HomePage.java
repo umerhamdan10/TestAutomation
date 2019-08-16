@@ -19,7 +19,6 @@ public class HomePage extends TestBase {
 
     @FindBy(xpath = "//a[contains(text(),'Tasks')]")
     WebElement taskLink;
-
     @FindBy(xpath = "//a[contains(text(),'New Contact')]")
     WebElement newContactLink;
 
